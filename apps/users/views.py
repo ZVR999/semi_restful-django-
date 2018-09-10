@@ -66,7 +66,7 @@ def edit(request, user_id):
     request.session['user_id'] = user_id
     return render(request, 'users/edit.html')
 
-
+# Update information of a current user
 def update(request):
     user = User.objects.get(id=request.session['user_id'])
     user.first_name = request.POST['first_name']
@@ -74,3 +74,10 @@ def update(request):
     user.email = request.POST['email']
     user.save()
     return redirect('/users/'+request.session['user_id'])
+
+def destroy(request,user_id):
+    user = User.objects.get(id=user_id)
+    # print user.first_name
+    # print user_id
+    user.delete()
+    return redirect('/users')
