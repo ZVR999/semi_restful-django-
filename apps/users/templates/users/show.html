@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display a user</title>
+</head>
+<body>
+    
+    <h1>User {{request.session.user.id}}</h1>
+    <p>
+        Full Name: {{request.session.user.first_name}} {{request.session.user.last_name}}
+        <br>
+        Email: {{request.session.user.email}}
+        <br>
+        Created_at:  {{request.session.user.created_at}}
+    </p>
+
+    <a href="/users/{{request.session.user_id}}/edit">Edit</a> | <a href="">Delete</a>
+    <a href="/users">Users Page</a>
+</body>
+</html>
