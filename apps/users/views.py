@@ -75,6 +75,7 @@ def update(request):
     user.save()
     return redirect('/users/'+request.session['user_id'])
 
+# Remove selected user from DB
 def destroy(request,user_id):
     user = User.objects.get(id=user_id)
     # print user.first_name
